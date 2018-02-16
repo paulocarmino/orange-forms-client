@@ -7,6 +7,7 @@ import { FormsModule } from './forms/forms.module';
 import { AnswersModule } from './answers/answers.module';
 import { UsersModule } from './users/users.module';
 
+
 import { Angular2TokenService } from 'angular2-token';
 import { FormListComponent } from './forms/form-list/form-list.component';
 import { FormEditComponent } from './forms/form-edit/form-edit.component';
@@ -21,9 +22,9 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'forms', component: FormListComponent, canActivate: [Angular2TokenService]},
-    { path: 'forms/:id', component: FormEditComponent, canActivate: [Angular2TokenService]},
     { path: 'forms/new', component: FormEditComponent, canActivate: [Angular2TokenService]},
-    { path: 'answers', component: AnswerNewComponent, canActivate: [Angular2TokenService]},
+    { path: 'forms/:id', component: FormEditComponent, canActivate: [Angular2TokenService]},
+    { path: 'answers/:id/new', component: AnswerNewComponent, canActivate: [Angular2TokenService]},
     { path: 'answers/:id', component: AnswerListComponent, canActivate: [Angular2TokenService]},
     { path: '**', component: NotFoundComponent },
 ];
