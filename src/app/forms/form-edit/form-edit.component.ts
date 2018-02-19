@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormService } from '../../shared/form.service';
-import { Form } from '../../shared/form.model';
-
-import { Router, ActivatedRoute } from '@angular/router';
-
-
 @Component({
   selector: 'app-form-edit',
   templateUrl: './form-edit.component.html',
@@ -13,21 +7,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class FormEditComponent implements OnInit {
 
-  public form: Form = new Form({primary_color: '#eee', enable: false});
-
-  constructor(
-    private formService: FormService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) { }
+  constructor() { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      if (params['id'] !== undefined) {
-        this.formService.getForm(params['id']).subscribe(data => {
-          this.form = new Form(data);
-        });
-      }
-    });
   }
+
 }
